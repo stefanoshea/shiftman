@@ -12,7 +12,10 @@ class UseCaseConfig: AssemblyConfig {
     required init() {}
     
     var assemblies: [Assembly] {
-        return []
+        return [
+            HomePresenterAssembly(),
+            UsernameUseCaseAssembly()
+        ]
     }
 }
 

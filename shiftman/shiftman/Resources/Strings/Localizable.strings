@@ -1,0 +1,11 @@
+//
+//  Localizable.strings
+//  shiftman
+//
+//  Created by Stefan OShea on 25/3/21.
+//
+
+"HomeScreen.Username.Alert.Title" = "Enter name";
+"HomeScreen.Username.Alert.ActionTitle" = "Save";
+"HomeScreen.UserName.EditButtonTitle" = "Edit name";
+"HomeScreen.Username.WelcomeMessage" = "Welcome %@";
