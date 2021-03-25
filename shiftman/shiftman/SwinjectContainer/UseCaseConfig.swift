@@ -14,7 +14,8 @@ class UseCaseConfig: AssemblyConfig {
     var assemblies: [Assembly] {
         return [
             HomePresenterAssembly(),
-            UsernameUseCaseAssembly()
+            UsernameUseCaseAssembly(),
+            LocationPermissionUseCaseAssembly()
         ]
     }
 }

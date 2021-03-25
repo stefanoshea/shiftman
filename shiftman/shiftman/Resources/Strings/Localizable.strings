@@ -9,3 +9,17 @@
 "HomeScreen.Username.Alert.ActionTitle" = "Save";
 "HomeScreen.UserName.EditButtonTitle" = "Edit name";
 "HomeScreen.Username.WelcomeMessage" = "Welcome %@";
+
+"HomeScreen.StartShiftButton.Title" = "Start shift";
+
+"LocationPermission.PermissionDenied.Title" = "Allow access to location services";
+"LocationPermission.LocationServiceMessage" = "Enable location services in the app Settings to use this feature";
+"LocationPermission.LocationDisabled.Title" = "Enable device location services";
+"LocationPermission.LocationDisabled.Message" = "Turn on location services to allow Shiftman to determine your location.";
+"LocationPermission.LocationDisabled.ButtonText" = "OK";
+"LocationPermission.PermissionDenied.OpenSettings" = "Open Settings";
+"LocationPermission.PermissionDenied.CancelButton" = "Cancel";
+
+"StartShift.ScreenTitle" = "Start shift";
+"StartShift.Heading.Title" = "Shift details";
+"StartShift.SubHeading.Title" = "Approx start time: %@";

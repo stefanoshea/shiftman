@@ -26,6 +26,9 @@
 		E12F9E8E260C672D0052672B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E8D260C672D0052672B /* String+Extensions.swift */; };
 		E12F9E94260C67690052672B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E93260C67690052672B /* Localizable.strings */; };
 		E12F9E9C260C68EB0052672B /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E9B260C68EB0052672B /* HomePresenterTests.swift */; };
+		E12F9EA2260C76F80052672B /* LocationPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */; };
+		E12F9EAA260C7B860052672B /* ShiftPlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */; };
+		E12F9EB2260C83940052672B /* ShiftPlannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		E12F9E8D260C672D0052672B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		E12F9E93260C67690052672B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E12F9E9B260C68EB0052672B /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionUseCase.swift; sourceTree = "<group>"; };
+		E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftPlannerViewController.swift; sourceTree = "<group>"; };
+		E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftPlannerPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +129,7 @@
 			children = (
 				E12F9E8C260C67150052672B /* Extensions */,
 				E12F9E76260C5A4B0052672B /* Home */,
+				E12F9EA0260C76760052672B /* ShiftWork */,
 				E12F9E8B260C66C70052672B /* Resources */,
 				E12F9E5D260C525D0052672B /* SwinjectContainer */,
 				E12F9E2A260C4D4E0052672B /* AppDelegate.swift */,
@@ -198,6 +205,16 @@
 				E12F9E93260C67690052672B /* Localizable.strings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		E12F9EA0260C76760052672B /* ShiftWork */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */,
+				E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */,
+				E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */,
+			);
+			path = ShiftWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,12 +354,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12F9EAA260C7B860052672B /* ShiftPlannerViewController.swift in Sources */,
 				E12F9E67260C54DA0052672B /* ContainerFactory.swift in Sources */,
+				E12F9EA2260C76F80052672B /* LocationPermissionUseCase.swift in Sources */,
 				E12F9E8E260C672D0052672B /* String+Extensions.swift in Sources */,
 				E12F9E7D260C5C7B0052672B /* GlobalStyleGuide.swift in Sources */,
 				E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */,
 				E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */,
 				E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */,
+				E12F9EB2260C83940052672B /* ShiftPlannerPresenter.swift in Sources */,
 				E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */,
 				E12F9E87260C60850052672B /* SaveUsernameUseCase.swift in Sources */,
 				E12F9E82260C60270052672B /* HomePresenter.swift in Sources */,
@@ -527,6 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F827PC6JG7;
 				INFOPLIST_FILE = shiftman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,6 +567,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F827PC6JG7;
 				INFOPLIST_FILE = shiftman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
