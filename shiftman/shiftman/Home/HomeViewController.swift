@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10.0
-        button.backgroundColor = UIColor(red: 0, green: 138/255, blue: 38/255, alpha: 1.0)
+        button.backgroundColor = UIColor.shiftGreen
         button.contentMode = .center
         button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
@@ -53,12 +53,32 @@ class HomeViewController: UIViewController {
     private var presenter: HomePresenterProtocol
         
     init() {
-        presenter = ContainerFactory.resolve()
+        presenter = HomePresenter()
         super.init(nibName: nil, bundle: nil)
         presenter.view = self
         buildView()
         layoutView()
         styleView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateButtonState),
+                                               name: .shiftStatusChanged,
+                                               object: nil)
+    }
+    
+    @objc private func updateButtonState() {
+        DispatchQueue.main.async {
+            self.startButton.setTitle(self.presenter.isShiftInProgress() ? "End shift in progress" : "Start shift", for: .normal)
+            self.startButton.backgroundColor = self.presenter.isShiftInProgress() ? UIColor.shiftBurntOrange : UIColor.shiftGreen
+            self.startButton.addTarget(
+                self,
+                action: self.presenter.isShiftInProgress() ? #selector(self.stopButtonTapped) : #selector(self.startButtonTapped),
+                for: .touchUpInside)
+        }
+        
     }
     
     @available(*, unavailable)
@@ -72,6 +92,10 @@ class HomeViewController: UIViewController {
     
     @objc private func startButtonTapped() {
         presenter.didTapStartButton()
+    }
+    
+    @objc private func stopButtonTapped() {
+        presenter.didTapStopButton()
     }
     
     private func buildView() {
@@ -100,6 +124,7 @@ class HomeViewController: UIViewController {
     
     private func styleView() {
         view.backgroundColor = .shiftLightGrey
+        updateButtonState()
     }
 }
 
@@ -148,8 +173,8 @@ extension HomeViewController: HomePresenterView {
         present(alertController, animated: true)
     }
     
-    func openShiftPlanner() {
-        let navigationController = UINavigationController(rootViewController: ShiftPlannerViewController())
+    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint) {
+        let navigationController = UINavigationController(rootViewController: ShiftPlannerViewController(entryPoint: entryPoint))
         present(navigationController, animated: true, completion: nil)
     }
 }

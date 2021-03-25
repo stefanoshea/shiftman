@@ -5,6 +5,7 @@
 //  Created by Stefan OShea on 25/3/21.
 //
 
+import CoreLocation
 import Swinject
 import XCTest
 
@@ -15,16 +16,31 @@ class HomePresenterTests: XCTestCase {
     private var presenter: HomePresenterProtocol!
     private var container: Container!
     private var usernameUseCase: MockUsernameUseCase!
+    private var locationUseCase: MockLocationUseCase!
+    private var shiftStatusUseCase: MockShiftStatusUseCase!
+    private var startShiftUseCase: MockShiftStartUseCase!
     private var spyView: SpyView!
 
     override func setUpWithError() throws {
         usernameUseCase = MockUsernameUseCase()
+        locationUseCase = MockLocationUseCase()
+        shiftStatusUseCase = MockShiftStatusUseCase()
+        startShiftUseCase = MockShiftStartUseCase()
         spyView = SpyView()
         container = ContainerFactory.instance.container
         container.register(UserNameUseCaseProtocol.self) { _ in
-            return self.usernameUseCase
+            self.usernameUseCase
         }
-        presenter = ContainerFactory.resolve()
+        container.register(LocationPermissionUseCaseProtocol.self) { _ in
+            self.locationUseCase
+        }
+        container.register(ShiftStatusUseCaseProtocol.self) { _ in
+            self.shiftStatusUseCase
+        }
+        container.register(ShiftStartEndUseCaseProtocol.self) { _ in
+            self.startShiftUseCase
+        }
+        presenter = HomePresenter()
         presenter.view = spyView
     }
 
@@ -34,7 +50,7 @@ class HomePresenterTests: XCTestCase {
 
     func testGivenUserTapsEdit_ThenPresentAlert() {
         presenter.didTapEditButton()
-        XCTAssertTrue(self.spyView.didPresentErrorAlert,
+        XCTAssertTrue(self.spyView.didPresentEditAlert,
                       "Expected true, recieved false.")
     }
     
@@ -67,6 +83,62 @@ class HomePresenterTests: XCTestCase {
         XCTAssertTrue(actualMessage == expectedMessage,
                       "Expected fetched name to be \(expectedMessage). Instead, received \(actualMessage)")
     }
+    
+    func testGivenLocationServicesAreDisabledThenShowSettingsAlertWithCorrectData() {
+        locationUseCase.isLocationServicesEnabled = false
+        
+        let expectedTitle = "LocationPermission.LocationDisabled.Title".localized
+        let expectedMessage = "LocationPermission.LocationDisabled.Message".localized
+        
+        presenter.didTapStartButton()
+
+        XCTAssertTrue(self.spyView.didPresentGoToSettings, "")
+        let actualTitle = spyView.settingsTitle
+        let actualMessage = spyView.settingsMessage
+        XCTAssertTrue(actualTitle == expectedTitle,
+                      "Expected \(expectedTitle) but receieved \(actualTitle)")
+        XCTAssertTrue(actualMessage == expectedMessage,
+                      "Expected \(expectedMessage) but receieved \(actualMessage)")
+    }
+    
+    func testGivenUserHasDeniedLocationPermissionsThenShowSettingsAlertWithCorrectData() {
+        locationUseCase.authStatus = .denied
+        locationUseCase.isLocationServicesEnabled = true
+        
+        let expectedTitle = "LocationPermission.PermissionDenied.Title".localized
+        let expectedMessage = "LocationPermission.LocationServiceMessage".localized
+        
+        presenter.didTapStartButton()
+
+        XCTAssertTrue(self.spyView.didPresentGoToSettings, "")
+        let actualTitle = spyView.settingsTitle
+        let actualMessage = spyView.settingsMessage
+        XCTAssertTrue(actualTitle == expectedTitle,
+                      "Expected \(expectedTitle) but receieved \(actualTitle)")
+        XCTAssertTrue(actualMessage == expectedMessage,
+                      "Expected \(expectedMessage) but receieved \(actualMessage)")
+    }
+    
+    func testGivenUSerHasGrantedLocationPermissionsThenShowStartShift() {
+        locationUseCase.isLocationServicesEnabled = true
+        locationUseCase.authStatus = .authorizedAlways
+        
+        presenter.didTapStartButton()
+        spyView.testExpectation = expectation(description: "shiftExp")
+        waitForExpectations(timeout: 0.1)
+        XCTAssertTrue(self.spyView.didOpenShiftPlanner)
+    }
+    
+    func testGivenUserHasATripInProgressAndTapsButton_ThenOpenStartTrip() {
+        locationUseCase.isLocationServicesEnabled = true
+        locationUseCase.authStatus = .authorizedAlways
+        
+        shiftStatusUseCase.setShiftInProgress(inProgress: true)
+        
+        presenter.didTapStopButton()
+
+        XCTAssertTrue(self.spyView.entryPointOpened == ShiftPlannerEntryPoint.inProgress)
+    }
 
 }
 
@@ -81,14 +153,80 @@ private class MockUsernameUseCase: UserNameUseCaseProtocol {
     }
 }
 
+private class MockShiftStartUseCase: ShiftStartEndUseCaseProtocol {
+    var endShiftSuccess: Bool = false
+    func endShift(time: Date, location: CLLocationCoordinate2D, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
+        guard endShiftSuccess else {
+            onError()
+            return
+        }
+        onSuccess()
+    }
+    
+    var shiftStartSuccess: Bool = false
+    func startShift(time: Date, location: CLLocationCoordinate2D, onSuccess: @escaping () -> Void, onError: @escaping () -> Void) {
+        guard shiftStartSuccess else {
+            onError()
+            return
+        }
+        onSuccess()
+    }
+}
+
+private class MockShiftStatusUseCase: ShiftStatusUseCaseProtocol {
+    var inProgress = false
+    func isShiftInProgress() -> Bool {
+        inProgress
+    }
+    
+    func setShiftInProgress(inProgress: Bool) {
+        self.inProgress = true
+    }
+}
+
+private class MockLocationUseCase: LocationPermissionUseCaseProtocol {
+    func requestLocationPermissions() {}
+    
+    var isLocationServicesEnabled = false
+    func isDeviceLocationServicesEnabled() -> Bool {
+        isLocationServicesEnabled
+    }
+    
+    var authStatus: CLAuthorizationStatus = .notDetermined
+    func checkLocationPermissions(_ completion: ((CLAuthorizationStatus) -> Void)) {
+        completion(authStatus)
+    }
+}
+
 private class SpyView: HomePresenterView {
-    var didPresentErrorAlert = false
+    var didPresentEditAlert = false
     func presentEditAlert() {
-        didPresentErrorAlert = true
+        didPresentEditAlert = true
     }
     
     var updatedMessage: String?
     func updateNameWith(_ text: String) {
         updatedMessage = text
+    }
+    
+    var didOpenShiftPlanner = false
+    var testExpectation: XCTestExpectation?
+    var entryPointOpened: ShiftPlannerEntryPoint?
+    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint) {
+        didOpenShiftPlanner = true
+        entryPointOpened = entryPoint
+        
+        if let expectation = testExpectation {
+            expectation.fulfill()
+        }
+    }
+    
+    var didPresentGoToSettings = false
+    var settingsTitle: String?
+    var settingsMessage: String?
+    func presentGoToSettingsPrompt(title: String, message: String, locationServicesEnabled: Bool) {
+        didPresentGoToSettings = true
+        settingsTitle = title
+        settingsMessage = message
     }
 }

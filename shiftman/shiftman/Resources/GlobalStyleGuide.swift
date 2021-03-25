@@ -46,4 +46,8 @@ extension UIColor {
     public class var shiftLightGrey: UIColor {
         UIColor(red: 243/255, green: 245/255, blue: 247/255, alpha: 1.0)
     }
+    
+    public class var shiftGreen: UIColor {
+        UIColor(red: 0, green: 138/255, blue: 38/255, alpha: 1.0)
+    }
 }

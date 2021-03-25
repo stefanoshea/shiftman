@@ -8,6 +8,11 @@
 import Foundation
 import MapKit
 
+enum ShiftPlannerEntryPoint {
+    case startNew
+    case inProgress
+}
+
 class ShiftPlannerViewController: UIViewController {
     private lazy var mapView: MKMapView = {
         let map = MKMapView(frame: .zero)
@@ -34,16 +39,16 @@ class ShiftPlannerViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = UIColor.black.withAlphaComponent(0.9)
-        label.text = "StartShift.SubHeading.Title".localizedFormatString(presenter.formattedTimeForNow())
+        label.text = presenter.subtitleText()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
     }()
     
-    private let presenter: ShiftPlannerPresenter
+    private var presenter: ShiftPlannerPresenterProtocol
     
-    init() {
-        presenter = ShiftPlannerPresenter()
+    init(entryPoint: ShiftPlannerEntryPoint) {
+        presenter = ShiftPlannerPresenter(entryPoint: entryPoint)
         super.init(nibName: nil, bundle: nil)
         presenter.view = self
         buildView()
@@ -62,7 +67,7 @@ class ShiftPlannerViewController: UIViewController {
     }
     
     @objc private func doneButtonTapped() {
-        dismiss(animated: true, completion: nil)
+        presenter.doneButtonTapped(location: mapView.userLocation.coordinate)
     }
     
     @objc private func cancelButtonTapped() {
@@ -86,7 +91,7 @@ class ShiftPlannerViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButtonItem
         navigationItem.rightBarButtonItem = rightBarButtonItem
         
-        title = "StartShift.ScreenTitle".localized
+        title = presenter.screenTitle()
     }
     
     private func layoutView() {
@@ -119,5 +124,11 @@ extension ShiftPlannerViewController: MKMapViewDelegate {
 extension ShiftPlannerViewController: ShiftPlannerView {
     func updateTimeWith(_ time: String) {
         startTimeLabel.text = "StartShift.SubHeading.Title".localizedFormatString(time)
+    }
+    
+    func dismiss() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

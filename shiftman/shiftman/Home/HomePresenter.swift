@@ -9,19 +9,13 @@ import CoreLocation
 import Foundation
 import Swinject
 
-class HomePresenterAssembly: Assembly {
-    func assemble(container: Container) {
-        container.register(HomePresenterProtocol.self) { _ in
-            HomePresenter()
-        }
-    }
-}
-
 protocol HomePresenterProtocol {
     func saveUserName(_ name: String)
     func fetchUserName() -> String
     func didTapEditButton()
     func didTapStartButton()
+    func didTapStopButton()
+    func isShiftInProgress() -> Bool
     var view: HomePresenterView? { get set }
 }
 
@@ -29,18 +23,22 @@ protocol HomePresenterView: class {
     func presentEditAlert()
     func updateNameWith(_ text: String)
     func presentGoToSettingsPrompt(title: String, message: String, locationServicesEnabled: Bool)
-    func openShiftPlanner()
+    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint)
 }
 
 class HomePresenter {
     private let usernameUseCase: UserNameUseCaseProtocol
     private let locationUseCase: LocationPermissionUseCaseProtocol
+    private let shiftStatusUseCase: ShiftStatusUseCaseProtocol
+    private let shiftStartStopUseCase: ShiftStartEndUseCaseProtocol
     
     weak var view: HomePresenterView?
     
     init() {
         usernameUseCase = ContainerFactory.resolve()
         locationUseCase = ContainerFactory.resolve()
+        shiftStatusUseCase = ContainerFactory.resolve()
+        shiftStartStopUseCase = ContainerFactory.resolve()
     }
 }
 
@@ -62,13 +60,21 @@ extension HomePresenter: HomePresenterProtocol {
         // location permissions
         requestLocationPermissions {
             DispatchQueue.main.async {
-                self.view?.openShiftPlanner()
+                self.view?.openShiftPlanner(entryPoint: .startNew)
             }
         }
         
     }
     
-    func requestLocationPermissions(_ completion: (() -> Void)? ) {
+    func didTapStopButton() {
+        view?.openShiftPlanner(entryPoint: .inProgress)
+    }
+    
+    func isShiftInProgress() -> Bool {
+        shiftStatusUseCase.isShiftInProgress()
+    }
+    
+    private func requestLocationPermissions(_ completion: (() -> Void)? ) {
         locationUseCase.requestLocationPermissions()
         
         guard !locationUseCase.isDeviceLocationServicesEnabled() else {

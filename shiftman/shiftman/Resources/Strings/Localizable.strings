@@ -20,6 +20,9 @@
 "LocationPermission.PermissionDenied.OpenSettings" = "Open Settings";
 "LocationPermission.PermissionDenied.CancelButton" = "Cancel";
 
-"StartShift.ScreenTitle" = "Start shift";
+"StartShift.ScreenTitle" = "Start new shift";
 "StartShift.Heading.Title" = "Shift details";
 "StartShift.SubHeading.Title" = "Approx start time: %@";
+
+"EndShift.ScreenTitle" = "End shift";
+"EndShift.SubHeading.Title" = "Approx end time: %@";
