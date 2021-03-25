@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		E12F9E37260C4D4F0052672B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */; };
 		E12F9E42260C4D500052672B /* shiftmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E41260C4D500052672B /* shiftmanTests.swift */; };
 		E12F9E4D260C4D500052672B /* shiftmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E4C260C4D500052672B /* shiftmanUITests.swift */; };
+		E12F9E60260C54A80052672B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E12F9E5F260C54A80052672B /* Swinject */; };
+		E12F9E67260C54DA0052672B /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E64260C54DA0052672B /* ContainerFactory.swift */; };
+		E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E65260C54DA0052672B /* MainConfig.swift */; };
+		E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E66260C54DA0052672B /* UseCaseConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		E12F9E48260C4D500052672B /* shiftmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shiftmanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F9E4C260C4D500052672B /* shiftmanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shiftmanUITests.swift; sourceTree = "<group>"; };
 		E12F9E4E260C4D500052672B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E12F9E64260C54DA0052672B /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
+		E12F9E65260C54DA0052672B /* MainConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainConfig.swift; sourceTree = "<group>"; };
+		E12F9E66260C54DA0052672B /* UseCaseConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12F9E60260C54A80052672B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +107,7 @@
 		E12F9E29260C4D4E0052672B /* shiftman */ = {
 			isa = PBXGroup;
 			children = (
+				E12F9E5D260C525D0052672B /* SwinjectContainer */,
 				E12F9E2A260C4D4E0052672B /* AppDelegate.swift */,
 				E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */,
 				E12F9E2E260C4D4E0052672B /* ViewController.swift */,
@@ -128,6 +137,16 @@
 			path = shiftmanUITests;
 			sourceTree = "<group>";
 		};
+		E12F9E5D260C525D0052672B /* SwinjectContainer */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9E64260C54DA0052672B /* ContainerFactory.swift */,
+				E12F9E65260C54DA0052672B /* MainConfig.swift */,
+				E12F9E66260C54DA0052672B /* UseCaseConfig.swift */,
+			);
+			path = SwinjectContainer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +163,9 @@
 			dependencies = (
 			);
 			name = shiftman;
+			packageProductDependencies = (
+				E12F9E5F260C54A80052672B /* Swinject */,
+			);
 			productName = shiftman;
 			productReference = E12F9E27260C4D4E0052672B /* shiftman.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +237,9 @@
 				Base,
 			);
 			mainGroup = E12F9E1E260C4D4E0052672B;
+			packageReferences = (
+				E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = E12F9E28260C4D4E0052672B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12F9E67260C54DA0052672B /* ContainerFactory.swift in Sources */,
+				E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */,
+				E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */,
 				E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */,
 				E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */,
 				E12F9E2D260C4D4E0052672B /* SceneDelegate.swift in Sources */,
@@ -593,6 +621,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E12F9E5F260C54A80052672B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E12F9E1F260C4D4E0052672B /* Project object */;
 }
