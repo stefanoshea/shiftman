@@ -3,29 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2A260C4D4E0052672B /* AppDelegate.swift */; };
 		E12F9E2D260C4D4E0052672B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */; };
-		E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2E260C4D4E0052672B /* ViewController.swift */; };
-		E12F9E32260C4D4E0052672B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E30260C4D4E0052672B /* Main.storyboard */; };
 		E12F9E34260C4D4F0052672B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E33260C4D4F0052672B /* Assets.xcassets */; };
 		E12F9E37260C4D4F0052672B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */; };
-		E12F9E42260C4D500052672B /* shiftmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E41260C4D500052672B /* shiftmanTests.swift */; };
-		E12F9E4D260C4D500052672B /* shiftmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E4C260C4D500052672B /* shiftmanUITests.swift */; };
+		E12F9E60260C54A80052672B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E12F9E5F260C54A80052672B /* Swinject */; };
+		E12F9E67260C54DA0052672B /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E64260C54DA0052672B /* ContainerFactory.swift */; };
+		E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E65260C54DA0052672B /* MainConfig.swift */; };
+		E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E66260C54DA0052672B /* UseCaseConfig.swift */; };
+		E12F9E78260C5A6B0052672B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E77260C5A6B0052672B /* HomeViewController.swift */; };
+		E12F9E7D260C5C7B0052672B /* GlobalStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E7C260C5C7B0052672B /* GlobalStyleGuide.swift */; };
+		E12F9E82260C60270052672B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E81260C60270052672B /* HomePresenter.swift */; };
+		E12F9E87260C60850052672B /* SaveUsernameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E86260C60850052672B /* SaveUsernameUseCase.swift */; };
+		E12F9E8E260C672D0052672B /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E8D260C672D0052672B /* String+Extensions.swift */; };
+		E12F9E94260C67690052672B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E93260C67690052672B /* Localizable.strings */; };
+		E12F9E9C260C68EB0052672B /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E9B260C68EB0052672B /* HomePresenterTests.swift */; };
+		E12F9EA2260C76F80052672B /* LocationPermissionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */; };
+		E12F9EAA260C7B860052672B /* ShiftPlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */; };
+		E12F9EB2260C83940052672B /* ShiftPlannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */; };
+		E12F9EC1260C97540052672B /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EC0260C97540052672B /* APIManager.swift */; };
+		E12F9EC9260C98DA0052672B /* URLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EC8260C98DA0052672B /* URLResponse+Extension.swift */; };
+		E12F9ECE260C9A050052672B /* ShiftRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9ECD260C9A050052672B /* ShiftRequestModel.swift */; };
+		E12F9ED9260C9D170052672B /* ShiftStartEndUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9ED8260C9D170052672B /* ShiftStartEndUseCase.swift */; };
+		E12F9EDE260CA1FC0052672B /* ShiftStatusUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EDD260CA1FC0052672B /* ShiftStatusUseCase.swift */; };
+		E12F9EE6260D420C0052672B /* ShiftPlannerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9EE5260D420C0052672B /* ShiftPlannerPresenterTests.swift */; };
+		E12F9F1C260D4ABE0052672B /* ShiftHistorySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9F1B260D4ABE0052672B /* ShiftHistorySectionHeader.swift */; };
+		E12F9F21260D4CC70052672B /* ShiftHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9F20260D4CC70052672B /* ShiftHistoryTableViewCell.swift */; };
+		E149FC74260D4EEC00005AED /* ShiftHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E149FC73260D4EEC00005AED /* ShiftHistoryViewController.swift */; };
+		E15E8C74260D52C30066CA3E /* ShiftHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E8C73260D52C30066CA3E /* ShiftHistoryResponse.swift */; };
+		E15E8C7E260D56340066CA3E /* ShiftHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E8C7D260D56340066CA3E /* ShiftHistoryUseCase.swift */; };
+		E15E8C84260D58170066CA3E /* ShiftHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E8C83260D58170066CA3E /* ShiftHistoryPresenter.swift */; };
+		E15E8D68260DACF20066CA3E /* ShiftHistoryPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E8D67260DACF20066CA3E /* ShiftHistoryPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		E12F9E3E260C4D500052672B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E12F9E1F260C4D4E0052672B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E12F9E26260C4D4E0052672B;
-			remoteInfo = shiftman;
-		};
-		E12F9E49260C4D500052672B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E12F9E1F260C4D4E0052672B /* Project object */;
 			proxyType = 1;
@@ -38,17 +54,37 @@
 		E12F9E27260C4D4E0052672B /* shiftman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiftman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F9E2A260C4D4E0052672B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E12F9E2E260C4D4E0052672B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E12F9E31260C4D4E0052672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E12F9E33260C4D4F0052672B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E12F9E36260C4D4F0052672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E12F9E38260C4D4F0052672B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E12F9E3D260C4D500052672B /* shiftmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shiftmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E12F9E41260C4D500052672B /* shiftmanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shiftmanTests.swift; sourceTree = "<group>"; };
 		E12F9E43260C4D500052672B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E12F9E48260C4D500052672B /* shiftmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shiftmanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E12F9E4C260C4D500052672B /* shiftmanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shiftmanUITests.swift; sourceTree = "<group>"; };
-		E12F9E4E260C4D500052672B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E12F9E64260C54DA0052672B /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
+		E12F9E65260C54DA0052672B /* MainConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainConfig.swift; sourceTree = "<group>"; };
+		E12F9E66260C54DA0052672B /* UseCaseConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseConfig.swift; sourceTree = "<group>"; };
+		E12F9E77260C5A6B0052672B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E12F9E7C260C5C7B0052672B /* GlobalStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStyleGuide.swift; sourceTree = "<group>"; };
+		E12F9E81260C60270052672B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		E12F9E86260C60850052672B /* SaveUsernameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsernameUseCase.swift; sourceTree = "<group>"; };
+		E12F9E8D260C672D0052672B /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		E12F9E93260C67690052672B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E12F9E9B260C68EB0052672B /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionUseCase.swift; sourceTree = "<group>"; };
+		E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftPlannerViewController.swift; sourceTree = "<group>"; };
+		E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftPlannerPresenter.swift; sourceTree = "<group>"; };
+		E12F9EC0260C97540052672B /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E12F9EC8260C98DA0052672B /* URLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Extension.swift"; sourceTree = "<group>"; };
+		E12F9ECD260C9A050052672B /* ShiftRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftRequestModel.swift; sourceTree = "<group>"; };
+		E12F9ED8260C9D170052672B /* ShiftStartEndUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStartEndUseCase.swift; sourceTree = "<group>"; };
+		E12F9EDD260CA1FC0052672B /* ShiftStatusUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftStatusUseCase.swift; sourceTree = "<group>"; };
+		E12F9EE5260D420C0052672B /* ShiftPlannerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftPlannerPresenterTests.swift; sourceTree = "<group>"; };
+		E12F9F1B260D4ABE0052672B /* ShiftHistorySectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistorySectionHeader.swift; sourceTree = "<group>"; };
+		E12F9F20260D4CC70052672B /* ShiftHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E149FC73260D4EEC00005AED /* ShiftHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryViewController.swift; sourceTree = "<group>"; };
+		E15E8C73260D52C30066CA3E /* ShiftHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryResponse.swift; sourceTree = "<group>"; };
+		E15E8C7D260D56340066CA3E /* ShiftHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryUseCase.swift; sourceTree = "<group>"; };
+		E15E8C83260D58170066CA3E /* ShiftHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryPresenter.swift; sourceTree = "<group>"; };
+		E15E8D67260DACF20066CA3E /* ShiftHistoryPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftHistoryPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,17 +92,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E12F9E60260C54A80052672B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E12F9E3A260C4D500052672B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E12F9E45260C4D500052672B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,7 +111,6 @@
 			children = (
 				E12F9E29260C4D4E0052672B /* shiftman */,
 				E12F9E40260C4D500052672B /* shiftmanTests */,
-				E12F9E4B260C4D500052672B /* shiftmanUITests */,
 				E12F9E28260C4D4E0052672B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +120,6 @@
 			children = (
 				E12F9E27260C4D4E0052672B /* shiftman.app */,
 				E12F9E3D260C4D500052672B /* shiftmanTests.xctest */,
-				E12F9E48260C4D500052672B /* shiftmanUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,11 +127,15 @@
 		E12F9E29260C4D4E0052672B /* shiftman */ = {
 			isa = PBXGroup;
 			children = (
+				E12F9EBF260C96EA0052672B /* Network */,
+				E12F9E8C260C67150052672B /* Extensions */,
+				E149FC72260D4ED600005AED /* ShiftHistory */,
+				E12F9E76260C5A4B0052672B /* Home */,
+				E12F9EA0260C76760052672B /* ShiftWork */,
+				E12F9E8B260C66C70052672B /* Resources */,
+				E12F9E5D260C525D0052672B /* SwinjectContainer */,
 				E12F9E2A260C4D4E0052672B /* AppDelegate.swift */,
 				E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */,
-				E12F9E2E260C4D4E0052672B /* ViewController.swift */,
-				E12F9E30260C4D4E0052672B /* Main.storyboard */,
-				E12F9E33260C4D4F0052672B /* Assets.xcassets */,
 				E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */,
 				E12F9E38260C4D4F0052672B /* Info.plist */,
 			);
@@ -113,19 +145,93 @@
 		E12F9E40260C4D500052672B /* shiftmanTests */ = {
 			isa = PBXGroup;
 			children = (
-				E12F9E41260C4D500052672B /* shiftmanTests.swift */,
 				E12F9E43260C4D500052672B /* Info.plist */,
+				E12F9E9B260C68EB0052672B /* HomePresenterTests.swift */,
+				E12F9EE5260D420C0052672B /* ShiftPlannerPresenterTests.swift */,
+				E15E8D67260DACF20066CA3E /* ShiftHistoryPresenterTests.swift */,
 			);
 			path = shiftmanTests;
 			sourceTree = "<group>";
 		};
-		E12F9E4B260C4D500052672B /* shiftmanUITests */ = {
+		E12F9E5D260C525D0052672B /* SwinjectContainer */ = {
 			isa = PBXGroup;
 			children = (
-				E12F9E4C260C4D500052672B /* shiftmanUITests.swift */,
-				E12F9E4E260C4D500052672B /* Info.plist */,
+				E12F9E64260C54DA0052672B /* ContainerFactory.swift */,
+				E12F9E65260C54DA0052672B /* MainConfig.swift */,
+				E12F9E66260C54DA0052672B /* UseCaseConfig.swift */,
 			);
-			path = shiftmanUITests;
+			path = SwinjectContainer;
+			sourceTree = "<group>";
+		};
+		E12F9E76260C5A4B0052672B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9E77260C5A6B0052672B /* HomeViewController.swift */,
+				E12F9E81260C60270052672B /* HomePresenter.swift */,
+				E12F9E86260C60850052672B /* SaveUsernameUseCase.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E12F9E8B260C66C70052672B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9E92260C674C0052672B /* Strings */,
+				E12F9E33260C4D4F0052672B /* Assets.xcassets */,
+				E12F9E7C260C5C7B0052672B /* GlobalStyleGuide.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E12F9E8C260C67150052672B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9E8D260C672D0052672B /* String+Extensions.swift */,
+				E12F9EC8260C98DA0052672B /* URLResponse+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E12F9E92260C674C0052672B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9E93260C67690052672B /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		E12F9EA0260C76760052672B /* ShiftWork */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */,
+				E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */,
+				E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */,
+				E12F9EDD260CA1FC0052672B /* ShiftStatusUseCase.swift */,
+			);
+			path = ShiftWork;
+			sourceTree = "<group>";
+		};
+		E12F9EBF260C96EA0052672B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E12F9EC0260C97540052672B /* APIManager.swift */,
+				E12F9ECD260C9A050052672B /* ShiftRequestModel.swift */,
+				E15E8C73260D52C30066CA3E /* ShiftHistoryResponse.swift */,
+				E15E8C7D260D56340066CA3E /* ShiftHistoryUseCase.swift */,
+				E12F9ED8260C9D170052672B /* ShiftStartEndUseCase.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E149FC72260D4ED600005AED /* ShiftHistory */ = {
+			isa = PBXGroup;
+			children = (
+				E149FC73260D4EEC00005AED /* ShiftHistoryViewController.swift */,
+				E12F9F1B260D4ABE0052672B /* ShiftHistorySectionHeader.swift */,
+				E12F9F20260D4CC70052672B /* ShiftHistoryTableViewCell.swift */,
+				E15E8C83260D58170066CA3E /* ShiftHistoryPresenter.swift */,
+			);
+			path = ShiftHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +250,9 @@
 			dependencies = (
 			);
 			name = shiftman;
+			packageProductDependencies = (
+				E12F9E5F260C54A80052672B /* Swinject */,
+			);
 			productName = shiftman;
 			productReference = E12F9E27260C4D4E0052672B /* shiftman.app */;
 			productType = "com.apple.product-type.application";
@@ -166,24 +275,6 @@
 			productReference = E12F9E3D260C4D500052672B /* shiftmanTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E12F9E47260C4D500052672B /* shiftmanUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E12F9E57260C4D500052672B /* Build configuration list for PBXNativeTarget "shiftmanUITests" */;
-			buildPhases = (
-				E12F9E44260C4D500052672B /* Sources */,
-				E12F9E45260C4D500052672B /* Frameworks */,
-				E12F9E46260C4D500052672B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E12F9E4A260C4D500052672B /* PBXTargetDependency */,
-			);
-			name = shiftmanUITests;
-			productName = shiftmanUITests;
-			productReference = E12F9E48260C4D500052672B /* shiftmanUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,10 +291,6 @@
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = E12F9E26260C4D4E0052672B;
 					};
-					E12F9E47260C4D500052672B = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = E12F9E26260C4D4E0052672B;
-					};
 				};
 			};
 			buildConfigurationList = E12F9E22260C4D4E0052672B /* Build configuration list for PBXProject "shiftman" */;
@@ -215,13 +302,15 @@
 				Base,
 			);
 			mainGroup = E12F9E1E260C4D4E0052672B;
+			packageReferences = (
+				E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = E12F9E28260C4D4E0052672B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E12F9E26260C4D4E0052672B /* shiftman */,
 				E12F9E3C260C4D500052672B /* shiftmanTests */,
-				E12F9E47260C4D500052672B /* shiftmanUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -232,19 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12F9E37260C4D4F0052672B /* LaunchScreen.storyboard in Resources */,
+				E12F9E94260C67690052672B /* Localizable.strings in Resources */,
 				E12F9E34260C4D4F0052672B /* Assets.xcassets in Resources */,
-				E12F9E32260C4D4E0052672B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E12F9E3B260C4D500052672B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E12F9E46260C4D500052672B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,9 +340,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */,
+				E12F9F1C260D4ABE0052672B /* ShiftHistorySectionHeader.swift in Sources */,
+				E12F9EC9260C98DA0052672B /* URLResponse+Extension.swift in Sources */,
+				E12F9EAA260C7B860052672B /* ShiftPlannerViewController.swift in Sources */,
+				E12F9E67260C54DA0052672B /* ContainerFactory.swift in Sources */,
+				E12F9EA2260C76F80052672B /* LocationPermissionUseCase.swift in Sources */,
+				E12F9E8E260C672D0052672B /* String+Extensions.swift in Sources */,
+				E149FC74260D4EEC00005AED /* ShiftHistoryViewController.swift in Sources */,
+				E15E8C84260D58170066CA3E /* ShiftHistoryPresenter.swift in Sources */,
+				E12F9E7D260C5C7B0052672B /* GlobalStyleGuide.swift in Sources */,
+				E12F9EDE260CA1FC0052672B /* ShiftStatusUseCase.swift in Sources */,
+				E12F9ECE260C9A050052672B /* ShiftRequestModel.swift in Sources */,
+				E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */,
+				E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */,
+				E12F9EB2260C83940052672B /* ShiftPlannerPresenter.swift in Sources */,
 				E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */,
+				E12F9E87260C60850052672B /* SaveUsernameUseCase.swift in Sources */,
+				E12F9E82260C60270052672B /* HomePresenter.swift in Sources */,
+				E15E8C74260D52C30066CA3E /* ShiftHistoryResponse.swift in Sources */,
+				E12F9EC1260C97540052672B /* APIManager.swift in Sources */,
+				E12F9E78260C5A6B0052672B /* HomeViewController.swift in Sources */,
+				E15E8C7E260D56340066CA3E /* ShiftHistoryUseCase.swift in Sources */,
 				E12F9E2D260C4D4E0052672B /* SceneDelegate.swift in Sources */,
+				E12F9F21260D4CC70052672B /* ShiftHistoryTableViewCell.swift in Sources */,
+				E12F9ED9260C9D170052672B /* ShiftStartEndUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,15 +371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12F9E42260C4D500052672B /* shiftmanTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E12F9E44260C4D500052672B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E12F9E4D260C4D500052672B /* shiftmanUITests.swift in Sources */,
+				E12F9EE6260D420C0052672B /* ShiftPlannerPresenterTests.swift in Sources */,
+				E12F9E9C260C68EB0052672B /* HomePresenterTests.swift in Sources */,
+				E15E8D68260DACF20066CA3E /* ShiftHistoryPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,22 +385,9 @@
 			target = E12F9E26260C4D4E0052672B /* shiftman */;
 			targetProxy = E12F9E3E260C4D500052672B /* PBXContainerItemProxy */;
 		};
-		E12F9E4A260C4D500052672B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E12F9E26260C4D4E0052672B /* shiftman */;
-			targetProxy = E12F9E49260C4D500052672B /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E12F9E30260C4D4E0052672B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12F9E31260C4D4E0052672B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,6 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F827PC6JG7;
 				INFOPLIST_FILE = shiftman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +543,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F827PC6JG7;
 				INFOPLIST_FILE = shiftman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,46 +599,6 @@
 			};
 			name = Release;
 		};
-		E12F9E58260C4D500052672B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F827PC6JG7;
-				INFOPLIST_FILE = shiftmanUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stefanoshea.shiftmanUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = shiftman;
-			};
-			name = Debug;
-		};
-		E12F9E59260C4D500052672B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F827PC6JG7;
-				INFOPLIST_FILE = shiftmanUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stefanoshea.shiftmanUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = shiftman;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -583,16 +629,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E12F9E57260C4D500052672B /* Build configuration list for PBXNativeTarget "shiftmanUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E12F9E58260C4D500052672B /* Debug */,
-				E12F9E59260C4D500052672B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E12F9E5F260C54A80052672B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E12F9E5E260C54A80052672B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E12F9E1F260C4D4E0052672B /* Project object */;
 }

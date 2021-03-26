@@ -1,0 +1,38 @@
+//
+//  Localizable.strings
+//  shiftman
+//
+//  Created by Stefan OShea on 25/3/21.
+//
+
+"HomeScreen.DefaultWelcomeName" = "Stranger";
+"HomeScreen.Username.Alert.Title" = "Enter name";
+"HomeScreen.Username.Alert.ActionTitle" = "Save";
+"HomeScreen.UserName.EditButtonTitle" = "Edit name";
+"HomeScreen.Username.WelcomeMessage" = "Welcome %@";
+
+"HomeScreen.StartShiftButton.Title" = "Start shift";
+
+"LocationPermission.PermissionDenied.Title" = "Allow access to location services";
+"LocationPermission.LocationServiceMessage" = "Enable location services in the app Settings to use this feature";
+"LocationPermission.LocationDisabled.Title" = "Enable device location services";
+"LocationPermission.LocationDisabled.Message" = "Turn on location services to allow Shiftman to determine your location.";
+"LocationPermission.LocationDisabled.ButtonText" = "OK";
+"LocationPermission.PermissionDenied.OpenSettings" = "Open Settings";
+"LocationPermission.PermissionDenied.CancelButton" = "Cancel";
+
+"StartShift.ScreenTitle" = "Start new shift";
+"StartShift.Heading.Title" = "Shift details";
+"StartShift.SubHeading.Title" = "Approx start time: %@";
+
+"EndShift.ScreenTitle" = "End shift";
+"EndShift.SubHeading.Title" = "Approx end time: %@";
+
+"ShiftHistory.SectionHeader.Title" = "Shift history";
+"ShiftHistory.ShiftId" = "Shift ID: %@";
+
+"ErrorHandling.GenericTitle" = "Error";
+"ErrorHandling.GenericButtonTitle" = "OK";
+"ErrorHandling.EndShift.Message" = "There was an error ending your shift. Please try again";
+"ErrorHandling.StartShift.Message" = "There was an error starting your shift. Please try again";
+"ErrorHandling.FetchShifts.Message" = "There was an error fetching your shifts. Please try again later.";
