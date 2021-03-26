@@ -17,7 +17,8 @@ class UseCaseConfig: AssemblyConfig {
             LocationPermissionUseCaseAssembly(),
             ApiManagerAssembly(),
             ShiftStartEndUseCaseAssembly(),
-            ShiftStatusUseCaseAssembly()
+            ShiftStatusUseCaseAssembly(),
+            ShiftHistoryUseCaseAssembly()
         ]
     }
 }

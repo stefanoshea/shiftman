@@ -31,6 +31,8 @@ class ShiftPlannerPresenterTests: XCTestCase {
         container.register(ShiftStartEndUseCaseProtocol.self) { _ in
             self.startShiftUseCase
         }
+        presenter = ShiftPlannerPresenter()
+        presenter.view = spyView
     }
 
     override func tearDownWithError() throws {
@@ -38,7 +40,6 @@ class ShiftPlannerPresenterTests: XCTestCase {
     }
 
     func testGivenUserHasTripInProgressAndTapsDone_ThenEndShift() {
-        setupPresenter(entryPoint: .inProgress)
         shiftStatusUseCase.inProgress = true
         startShiftUseCase.endShiftShouldSucceed = true
         
@@ -50,7 +51,6 @@ class ShiftPlannerPresenterTests: XCTestCase {
     }
     
     func testGivenUserHasNoTripInProgressAndTapsDone_ThenStartShift() {
-        setupPresenter(entryPoint: .startNew)
         shiftStatusUseCase.inProgress = false
         startShiftUseCase.startShiftShouldSucceed = true
         
@@ -61,11 +61,26 @@ class ShiftPlannerPresenterTests: XCTestCase {
         XCTAssertTrue(shiftStatusUseCase.isShiftInProgress())
     }
     
-    private func setupPresenter(entryPoint: ShiftPlannerEntryPoint) {
-        presenter = ShiftPlannerPresenter(entryPoint: entryPoint)
-        presenter.view = spyView
+    func testGivenTriesToStartShiftAndAPIFails_ThenDisplayErrorMessage() {
+        shiftStatusUseCase.inProgress = false
+        startShiftUseCase.startShiftShouldSucceed = false
+        
+        spyView.testExpection = expectation(description: "apiStartFail")
+        presenter.doneButtonTapped(location: CLLocationCoordinate2D())
+        waitForExpectations(timeout: 0.1, handler: nil)
+        XCTAssertTrue(self.spyView.didDisplayErrorForStart)
     }
-
+    
+    func testGivenTriesToEndShiftAndAPIFails_ThenDisplayErrorMessage() {
+        shiftStatusUseCase.inProgress = true
+        startShiftUseCase.endShiftShouldSucceed = false
+        
+        spyView.testExpection = expectation(description: "apiEndFail")
+        presenter.doneButtonTapped(location: CLLocationCoordinate2D())
+        waitForExpectations(timeout: 0.1, handler: nil)
+        XCTAssertTrue(self.spyView.didDisplayErrorForEnd)
+    }
+    
 }
 
 private class MockShiftStartUseCase: ShiftStartEndUseCaseProtocol {
@@ -119,6 +134,18 @@ private class SpyView: ShiftPlannerView {
         didDismiss = true
         if let expectation = testExpection {
             expectation.fulfill()
+            testExpection = nil
+        }
+    }
+    
+    var didDisplayErrorForStart = false
+    var didDisplayErrorForEnd = false
+    func displayError(forStart: Bool) {
+        didDisplayErrorForEnd = !forStart
+        didDisplayErrorForStart = forStart
+        if let exp = self.testExpection {
+            exp.fulfill()
+            testExpection = nil
         }
     }
 }

@@ -26,3 +26,12 @@
 
 "EndShift.ScreenTitle" = "End shift";
 "EndShift.SubHeading.Title" = "Approx end time: %@";
+
+"ShiftHistory.SectionHeader.Title" = "Shift history";
+"ShiftHistory.ShiftId" = "Shift ID: %@";
+
+"ErrorHandling.GenericTitle" = "Error";
+"ErrorHandling.GenericButtonTitle" = "OK";
+"ErrorHandling.EndShift.Message" = "There was an error ending your shift. Please try again";
+"ErrorHandling.StartShift.Message" = "There was an error starting your shift. Please try again";
+"ErrorHandling.FetchShifts.Message" = "There was an error fetching your shifts. Please try again later.";

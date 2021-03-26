@@ -50,6 +50,19 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var historyButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle("ShiftHistory.SectionHeader.Title".localized, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 10.0
+        button.backgroundColor = UIColor.shiftGreen
+        button.contentMode = .center
+        button.addTarget(self, action: #selector(historyButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private var presenter: HomePresenterProtocol
         
     init() {
@@ -98,9 +111,22 @@ class HomeViewController: UIViewController {
         presenter.didTapStopButton()
     }
     
+    @objc private func historyButtonTapped() {
+        let navigationController = UINavigationController(rootViewController: ShiftHistoryViewController())
+        navigationController.navigationBar.prefersLargeTitles = true
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black.withAlphaComponent(0.9)]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black.withAlphaComponent(0.9)]
+        navBarAppearance.backgroundColor = .clear
+        navigationController.navigationBar.standardAppearance = navBarAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = navBarAppearance
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     private func buildView() {
         [titleLabel, editButton].forEach { self.welcomeContainer.addSubview($0) }
-        [welcomeContainer, startButton].forEach { self.view.addSubview($0) }
+        [welcomeContainer, startButton, historyButton].forEach { self.view.addSubview($0) }
     }
     
     private func layoutView() {
@@ -117,8 +143,11 @@ class HomeViewController: UIViewController {
             startButton.leadingAnchor.constraint(equalTo: welcomeContainer.leadingAnchor),
             startButton.trailingAnchor.constraint(equalTo: welcomeContainer.trailingAnchor),
             startButton.topAnchor.constraint(equalTo: welcomeContainer.bottomAnchor, constant: Padding.medium),
-            startButton.heightAnchor.constraint(equalToConstant: 50.0)
-            
+            startButton.heightAnchor.constraint(equalToConstant: 50.0),
+            historyButton.leadingAnchor.constraint(equalTo: welcomeContainer.leadingAnchor),
+            historyButton.trailingAnchor.constraint(equalTo: welcomeContainer.trailingAnchor),
+            historyButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: Padding.medium),
+            historyButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
     }
     
@@ -174,7 +203,7 @@ extension HomeViewController: HomePresenterView {
     }
     
     func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint) {
-        let navigationController = UINavigationController(rootViewController: ShiftPlannerViewController(entryPoint: entryPoint))
+        let navigationController = UINavigationController(rootViewController: ShiftPlannerViewController())
         present(navigationController, animated: true, completion: nil)
     }
 }

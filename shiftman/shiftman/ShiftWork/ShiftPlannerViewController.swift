@@ -47,8 +47,8 @@ class ShiftPlannerViewController: UIViewController {
     
     private var presenter: ShiftPlannerPresenterProtocol
     
-    init(entryPoint: ShiftPlannerEntryPoint) {
-        presenter = ShiftPlannerPresenter(entryPoint: entryPoint)
+    init() {
+        presenter = ShiftPlannerPresenter()
         super.init(nibName: nil, bundle: nil)
         presenter.view = self
         buildView()
@@ -130,5 +130,16 @@ extension ShiftPlannerViewController: ShiftPlannerView {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func displayError(forStart: Bool) {
+        let alertController = UIAlertController(
+            title: "ErrorHandling.GenericTitle".localized,
+            message: forStart ? "ErrorHandling.StartShift.Message".localized : "ErrorHandling.FetchShifts.Message".localized,
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ErrorHandling.GenericButtonTitle".localized,
+                                                style: .default,
+                                                handler: nil))
+        present(alertController, animated: true)
     }
 }

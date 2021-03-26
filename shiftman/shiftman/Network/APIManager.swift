@@ -23,6 +23,8 @@ protocol ApiManagerProtocol {
     func sendEndShiftRequest(_ request: ShiftRequestModel,
                              onSuccess: @escaping (() -> Void),
                              onError: @escaping () -> Void)
+    func sendShiftHistoryRequest(onSuccess: @escaping ((Data) -> Void),
+                                 onError: @escaping () -> Void)
 }
 
 class APIManager: ApiManagerProtocol {
@@ -31,6 +33,7 @@ class APIManager: ApiManagerProtocol {
         private static let baseURL: String = "https://apjoqdqpi3.execute-api.us-west-2.amazonaws.com/dmc"
         static let shiftStart: String = baseURL + "/shift/start"
         static let shiftEnd: String = baseURL + "/shift/end"
+        static let shiftHistory: String = baseURL + "/shifts"
     }
     
     enum HTTPMethod: String {
@@ -56,6 +59,29 @@ class APIManager: ApiManagerProtocol {
                                 request: request,
                                 onSuccess: onSuccess,
                                 onError: onError)
+    }
+    
+    func sendShiftHistoryRequest(onSuccess: @escaping ((Data) -> Void),
+                                 onError: @escaping () -> Void) {
+        let endpoint = Endpoint.shiftHistory
+        guard let url = URL(string: endpoint) else {
+            onError()
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = HTTPMethod.GET.rawValue
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("Deputy eb0877843acc39f8ef6f7269937dee931c372d23",
+                            forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            guard let data = data, error == nil, response?.isResponseSuccessful() == true else {
+                onError()
+                return
+            }
+            onSuccess(data)
+        }
+        task.resume()
     }
     
     private func buildRequestForEndpoint(_ endpoint: String,

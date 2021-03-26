@@ -11,6 +11,7 @@ import Foundation
 protocol ShiftPlannerView: class {
     func updateTimeWith(_ time: String)
     func dismiss()
+    func displayError(forStart: Bool)
 }
 
 protocol ShiftPlannerPresenterProtocol {
@@ -26,10 +27,9 @@ class ShiftPlannerPresenter: ShiftPlannerPresenterProtocol {
     
     private let shiftUseCase: ShiftStartEndUseCaseProtocol = ContainerFactory.resolve()
     private let shiftStatusUseCase: ShiftStatusUseCaseProtocol = ContainerFactory.resolve()
-    private let entryPoint: ShiftPlannerEntryPoint
     
-    init(entryPoint: ShiftPlannerEntryPoint) {
-        self.entryPoint = entryPoint
+    private var shiftInProgress: Bool {
+        shiftStatusUseCase.isShiftInProgress()
     }
     
     func startTimeUpdateTimer() {
@@ -37,19 +37,21 @@ class ShiftPlannerPresenter: ShiftPlannerPresenterProtocol {
     }
     
     func doneButtonTapped(location: CLLocationCoordinate2D) {
-        shiftStatusUseCase.isShiftInProgress() ?
+        shiftInProgress ?
             endShift(location: location) : startShift(location: location)
     }
     
     func subtitleText() -> String {
-        return entryPoint == .startNew ?
-            "StartShift.SubHeading.Title".localizedFormatString(formattedTimeForNow()) :
-            "EndShift.SubHeading.Title".localizedFormatString(formattedTimeForNow())
+        shiftInProgress ? "EndShift.SubHeading.Title".localizedFormatString(formattedTimeForNow()) :
+            "StartShift.SubHeading.Title".localizedFormatString(formattedTimeForNow())
+            
     }
     
     func screenTitle() -> String {
-        entryPoint == .startNew ? "StartShift.ScreenTitle".localized : "EndShift.ScreenTitle".localized
+        shiftInProgress ? "EndShift.ScreenTitle".localized : "StartShift.ScreenTitle".localized
     }
+    
+    
     
     private func formattedTimeForNow() -> String {
         let date = Date()
@@ -67,7 +69,9 @@ class ShiftPlannerPresenter: ShiftPlannerPresenterProtocol {
                                         self.view?.dismiss()
                                     }
                                 }, onError: {
-                                    // TODO - error handling
+                                    DispatchQueue.main.async {
+                                        self.view?.displayError(forStart: true)
+                                    }
                                 })
     }
     
@@ -78,7 +82,9 @@ class ShiftPlannerPresenter: ShiftPlannerPresenterProtocol {
                                     self.shiftStatusUseCase.setShiftInProgress(inProgress: false)
                                     self.view?.dismiss()
                                 }, onError: {
-                                    // TODO - error handling
+                                    DispatchQueue.main.async {
+                                        self.view?.displayError(forStart: false)
+                                    }
                                 })
     }
     
