@@ -78,21 +78,4 @@ extension AssemblyConfig {
         self.container.removeAll()
         self.container = Container(parent: parentContainer)
     }
-    
-}
-
-// MARK: - Container Extensions
-
-extension Container {
-    func resolve<T>() -> T {
-        return self.resolve(T.self)!
-    }
-}
-
-// MARK: - Resolver Extensions
-
-extension Resolver {
-    func resolve<T>() -> T {
-        return self.resolve(T.self)!
-    }
 }

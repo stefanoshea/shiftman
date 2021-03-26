@@ -8,11 +8,6 @@
 import Foundation
 import MapKit
 
-enum ShiftPlannerEntryPoint {
-    case startNew
-    case inProgress
-}
-
 class ShiftPlannerViewController: UIViewController {
     private lazy var mapView: MKMapView = {
         let map = MKMapView(frame: .zero)

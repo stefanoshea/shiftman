@@ -37,21 +37,17 @@ class ShiftPlannerPresenter: ShiftPlannerPresenterProtocol {
     }
     
     func doneButtonTapped(location: CLLocationCoordinate2D) {
-        shiftInProgress ?
-            endShift(location: location) : startShift(location: location)
+        shiftInProgress ? endShift(location: location) : startShift(location: location)
     }
     
     func subtitleText() -> String {
         shiftInProgress ? "EndShift.SubHeading.Title".localizedFormatString(formattedTimeForNow()) :
             "StartShift.SubHeading.Title".localizedFormatString(formattedTimeForNow())
-            
     }
     
     func screenTitle() -> String {
         shiftInProgress ? "EndShift.ScreenTitle".localized : "StartShift.ScreenTitle".localized
     }
-    
-    
     
     private func formattedTimeForNow() -> String {
         let date = Date()

@@ -183,26 +183,20 @@ extension HomeViewController: HomePresenterView {
                                                 preferredStyle: .alert)
 
         if !locationServicesEnabled {
-            let okAction = UIAlertAction(title: "LocationPermission.LocationDisabled.ButtonText".localized,
-                                         style: .default,
-                                         handler: nil)
+            let okAction = UIAlertAction(title: "LocationPermission.LocationDisabled.ButtonText".localized, style: .default, handler: nil)
             alertController.addAction(okAction)
         } else {
-            let settingsAction = UIAlertAction(title: "LocationPermission.PermissionDenied.OpenSettings".localized,
-                                               style: .default) { _ in
+            let settingsAction = UIAlertAction(title: "LocationPermission.PermissionDenied.OpenSettings".localized, style: .default) { _ in
                 guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(url)
-
             }
-            let cancelAction = UIAlertAction(title: "LocationPermission.PermissionDenied.CancelButton".localized,
-                                             style: .default,
-                                             handler: nil)
+            let cancelAction = UIAlertAction(title: "LocationPermission.PermissionDenied.CancelButton".localized, style: .default, handler: nil)
             [settingsAction, cancelAction].forEach { alertController.addAction($0) }
         }
         present(alertController, animated: true)
     }
     
-    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint) {
+    func openShiftPlanner() {
         let navigationController = UINavigationController(rootViewController: ShiftPlannerViewController())
         present(navigationController, animated: true, completion: nil)
     }

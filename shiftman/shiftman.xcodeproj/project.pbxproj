@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2A260C4D4E0052672B /* AppDelegate.swift */; };
 		E12F9E2D260C4D4E0052672B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */; };
-		E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F9E2E260C4D4E0052672B /* ViewController.swift */; };
-		E12F9E32260C4D4E0052672B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E30260C4D4E0052672B /* Main.storyboard */; };
 		E12F9E34260C4D4F0052672B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E33260C4D4F0052672B /* Assets.xcassets */; };
 		E12F9E37260C4D4F0052672B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */; };
 		E12F9E60260C54A80052672B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E12F9E5F260C54A80052672B /* Swinject */; };
@@ -56,8 +54,6 @@
 		E12F9E27260C4D4E0052672B /* shiftman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiftman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12F9E2A260C4D4E0052672B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E12F9E2E260C4D4E0052672B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E12F9E31260C4D4E0052672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E12F9E33260C4D4F0052672B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E12F9E36260C4D4F0052672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E12F9E38260C4D4F0052672B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,8 +136,6 @@
 				E12F9E5D260C525D0052672B /* SwinjectContainer */,
 				E12F9E2A260C4D4E0052672B /* AppDelegate.swift */,
 				E12F9E2C260C4D4E0052672B /* SceneDelegate.swift */,
-				E12F9E2E260C4D4E0052672B /* ViewController.swift */,
-				E12F9E30260C4D4E0052672B /* Main.storyboard */,
 				E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */,
 				E12F9E38260C4D4F0052672B /* Info.plist */,
 			);
@@ -212,7 +206,6 @@
 				E12F9EA1260C76F80052672B /* LocationPermissionUseCase.swift */,
 				E12F9EA9260C7B860052672B /* ShiftPlannerViewController.swift */,
 				E12F9EB1260C83940052672B /* ShiftPlannerPresenter.swift */,
-				E12F9ED8260C9D170052672B /* ShiftStartEndUseCase.swift */,
 				E12F9EDD260CA1FC0052672B /* ShiftStatusUseCase.swift */,
 			);
 			path = ShiftWork;
@@ -225,6 +218,7 @@
 				E12F9ECD260C9A050052672B /* ShiftRequestModel.swift */,
 				E15E8C73260D52C30066CA3E /* ShiftHistoryResponse.swift */,
 				E15E8C7D260D56340066CA3E /* ShiftHistoryUseCase.swift */,
+				E12F9ED8260C9D170052672B /* ShiftStartEndUseCase.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -329,7 +323,6 @@
 				E12F9E37260C4D4F0052672B /* LaunchScreen.storyboard in Resources */,
 				E12F9E94260C67690052672B /* Localizable.strings in Resources */,
 				E12F9E34260C4D4F0052672B /* Assets.xcassets in Resources */,
-				E12F9E32260C4D4E0052672B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +353,6 @@
 				E12F9ECE260C9A050052672B /* ShiftRequestModel.swift in Sources */,
 				E12F9E69260C54DA0052672B /* UseCaseConfig.swift in Sources */,
 				E12F9E68260C54DA0052672B /* MainConfig.swift in Sources */,
-				E12F9E2F260C4D4E0052672B /* ViewController.swift in Sources */,
 				E12F9EB2260C83940052672B /* ShiftPlannerPresenter.swift in Sources */,
 				E12F9E2B260C4D4E0052672B /* AppDelegate.swift in Sources */,
 				E12F9E87260C60850052672B /* SaveUsernameUseCase.swift in Sources */,
@@ -396,14 +388,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E12F9E30260C4D4E0052672B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12F9E31260C4D4E0052672B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E12F9E35260C4D4F0052672B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

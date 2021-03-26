@@ -23,7 +23,7 @@ protocol HomePresenterView: class {
     func presentEditAlert()
     func updateNameWith(_ text: String)
     func presentGoToSettingsPrompt(title: String, message: String, locationServicesEnabled: Bool)
-    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint)
+    func openShiftPlanner()
 }
 
 class HomePresenter {
@@ -60,14 +60,14 @@ extension HomePresenter: HomePresenterProtocol {
         // location permissions
         requestLocationPermissions {
             DispatchQueue.main.async {
-                self.view?.openShiftPlanner(entryPoint: .startNew)
+                self.view?.openShiftPlanner()
             }
         }
         
     }
     
     func didTapStopButton() {
-        view?.openShiftPlanner(entryPoint: .inProgress)
+        view?.openShiftPlanner()
     }
     
     func isShiftInProgress() -> Bool {

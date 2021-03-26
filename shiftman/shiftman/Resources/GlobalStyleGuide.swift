@@ -23,15 +23,6 @@ struct Padding {
 
     /// 16
     static let medium = extraSmall * 4
-    
-    /// 20
-    static let largeMedium = extraSmall * 5
-
-    /// 24
-    static let large = extraSmall * 6
-
-    /// 32
-    static let extraLarge = extraSmall * 8
 }
 
 extension UIColor {

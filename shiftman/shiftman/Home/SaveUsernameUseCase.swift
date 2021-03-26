@@ -28,7 +28,7 @@ class UsernameUseCase: UserNameUseCaseProtocol {
     }
     
     func fetch() -> String {
-        UserDefaults.standard.string(forKey: UserDefaultsKey.username.rawValue) ?? "Stranger"
+        UserDefaults.standard.string(forKey: UserDefaultsKey.username.rawValue) ?? "HomeScreen.DefaultWelcomeName"
     }
 }
 

@@ -137,7 +137,8 @@ class HomePresenterTests: XCTestCase {
         
         presenter.didTapStopButton()
 
-        XCTAssertTrue(self.spyView.entryPointOpened == ShiftPlannerEntryPoint.inProgress)
+        XCTAssertTrue(self.spyView.didOpenShiftPlanner)
+        XCTAssertTrue(presenter.isShiftInProgress())
     }
 
 }
@@ -211,10 +212,8 @@ private class SpyView: HomePresenterView {
     
     var didOpenShiftPlanner = false
     var testExpectation: XCTestExpectation?
-    var entryPointOpened: ShiftPlannerEntryPoint?
-    func openShiftPlanner(entryPoint: ShiftPlannerEntryPoint) {
+    func openShiftPlanner() {
         didOpenShiftPlanner = true
-        entryPointOpened = entryPoint
         
         if let expectation = testExpectation {
             expectation.fulfill()

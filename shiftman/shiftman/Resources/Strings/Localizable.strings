@@ -5,6 +5,7 @@
 //  Created by Stefan OShea on 25/3/21.
 //
 
+"HomeScreen.DefaultWelcomeName" = "Stranger";
 "HomeScreen.Username.Alert.Title" = "Enter name";
 "HomeScreen.Username.Alert.ActionTitle" = "Save";
 "HomeScreen.UserName.EditButtonTitle" = "Edit name";
